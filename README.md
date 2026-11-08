@@ -6,6 +6,10 @@ EthnoVault is a consent-first, community-governed archive for oral traditions, I
 
 > **Demo notice:** audio playback, translations, uploads, endorsements, and council actions are simulated in the browser. The records are illustrative composites created for the hackathon — they are not real community records, and no real Indigenous knowledge is reproduced here.
 
+**Live demo:** https://hariprasath71811-max.github.io/ethnovault/  
+**Repository:** https://github.com/hariprasath71811-max/ethnovault  
+**Demo video:** https://hariprasath71811-max.github.io/ethnovault/ethnovault_demo.mp4
+
 ---
 
 ## Overview
@@ -16,6 +20,7 @@ EthnoVault is a consent-first, community-governed archive for oral traditions, I
 | **Event** | EthnoHack 2026 |
 | **Type** | Static single-page web app (no build step, no backend) |
 | **Status** | Interactive prototype / hackathon submission |
+| **Live** | https://hariprasath71811-max.github.io/ethnovault/ |
 | **Preview** | `http://localhost:8123` |
 
 ---

@@ -176,7 +176,7 @@
 ```
 EthnoVault
 Living Indigenous Knowledge Archive
-github.com/<your-handle>/ethnovault
+hariprasath71811-max.github.io/ethnovault
 Try the demo · localhost:8123
 ```
 

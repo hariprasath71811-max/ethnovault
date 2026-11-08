@@ -131,10 +131,10 @@ The visual language — cream paper, deep forest, terracotta accents, physical "
 
 ## Try it out
 
-- **Live demo:** `<add deployed URL>`
+- **Live demo:** https://hariprasath71811-max.github.io/ethnovault/
 - **Local:** `cd ethnovault && python -m http.server 8123` → http://localhost:8123
-- **Video:** `<add 2-minute demo video URL>`
-- **Repository:** `<add GitHub URL>`
+- **Video:** https://hariprasath71811-max.github.io/ethnovault/ethnovault_demo.mp4
+- **Repository:** https://github.com/hariprasath71811-max/ethnovault
 
 ### Demo path (30 seconds)
 
@@ -148,8 +148,7 @@ The visual language — cream paper, deep forest, terracotta accents, physical "
 
 ## Team
 
-- `<Name>` — design, front-end, narrative
-- `<Name>` — research, cultural framing, QA
+- **hariprasath71811-max** — design, front-end, narrative, QA
 
 ---
 
