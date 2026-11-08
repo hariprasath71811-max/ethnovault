@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EthnoVault Presentation Deck</title>
+<style>
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; color: #1b2a19; background: #faf8f5; }
+  .slide { width: 13.333in; height: 7.5in; padding: 0.7in 0.85in; page-break-after: always; position: relative; overflow: hidden; background: #faf8f5; }
+  .slide:last-child { page-break-after: auto; }
+  .slide.dark { background: #1b2a19; color: #faf8f5; }
+  .slide.accent { background: #c4674a; color: #faf8f5; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; opacity: 0.7; margin: 0 0 12px; }
+  h1 { font-size: 52px; line-height: 1.05; margin: 0 0 18px; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { font-size: 34px; line-height: 1.15; margin: 0 0 18px; font-weight: 700; letter-spacing: -0.01em; }
+  h3 { font-size: 20px; margin: 0 0 8px; font-weight: 600; }
+  p, li { font-size: 17px; line-height: 1.5; margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .title-row { display: flex; align-items: center; gap: 14px; }
+  .logo { width: 52px; height: 52px; border-radius: 12px; background: #2d5a3d; display: grid; place-items: center; color: #faf8f5; font-size: 26px; font-weight: 700; }
+  .tag { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.18); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .slide.dark .tag { background: rgba(250,248,245,0.15); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 10px; }
+  .card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 18px 20px; }
+  .slide:not(.dark):not(.accent) .card { background: #ffffff; border: 1px solid rgba(27,42,25,0.1); box-shadow: 0 2px 12px rgba(27,42,25,0.06); }
+  .num { font-size: 64px; font-weight: 700; line-height: 1; opacity: 0.18; position: absolute; right: 0.85in; bottom: 0.5in; }
+  .footer { position: absolute; bottom: 0.45in; left: 0.85in; font-size: 11px; opacity: 0.5; letter-spacing: 0.06em; text-transform: uppercase; }
+  .kpis { display: flex; gap: 18px; margin-top: 22px; }
+  .kpi { flex: 1; background: rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; }
+  .slide:not(.dark):not(.accent) .kpi { background: #f0ece4; }
+  .kpi .v { font-size: 28px; font-weight: 700; line-height: 1; }
+  .kpi .l { font-size: 12px; opacity: 0.7; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .mono { font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; }
+  .check { color: #6fbf8a; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .slide:not(.dark):not(.accent) th, .slide:not(.dark):not(.accent) td { border-bottom: 1px solid rgba(27,42,25,0.1); }
+  th { font-weight: 600; opacity: 0.85; }
+</style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<section class="slide dark">
+  <div class="eyebrow">EthnoHack 2026 · Traditional Knowledge Track</div>
+  <h1>EthnoVault</h1>
+  <p style="font-size:22px; max-width: 8.5in; opacity:0.9;">A consent-first living archive for Indigenous oral traditions, ethnopharmacology, and tribal languages.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">10</div><div class="l">Published records</div></div>
+    <div class="kpi"><div class="v">4</div><div class="l">Featured recordings</div></div>
+    <div class="kpi"><div class="v">10</div><div class="l">Regional map pins</div></div>
+    <div class="kpi"><div class="v">3 files</div><div class="l">Zero-backend SPA</div></div>
+  </div>
+  <div style="margin-top:32px; font-size:15px; opacity:0.7;">Live demo: hariprasath71811-max.github.io/ethnovault · Repo: github.com/hariprasath71811-max/ethnovault</div>
+  <div class="num">01</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 2 -->
+<section class="slide">
+  <div class="eyebrow">The Problem</div>
+  <h2>Oral knowledge disappears when it is extracted without consent.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Disappearing knowledge</h3>
+      <p>UNESCO estimates a language dies every two weeks. Plant wisdom, songs, and ecological calendars live in elders' voices — not in databases.</p>
+    </div>
+    <div class="card">
+      <h3>Extractive archives</h3>
+      <p>Most archives record first and ask later: no attribution, no reuse terms, no withdrawal. Communities lose control of their own heritage.</p>
+    </div>
+    <div class="card">
+      <h3>No FPIC in tooling</h3>
+      <p>Free, Prior and Informed Consent is a legal principle, but almost no software enforces it at the media layer.</p>
+    </div>
+    <div class="card">
+      <h3>Verification gap</h3>
+      <p>There is no lightweight way for elders and culture-bearers to review, endorse, or reject a record before it goes public.</p>
+    </div>
+  </div>
+  <div class="num">02</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 3 -->
+<section class="slide dark">
+  <div class="eyebrow">The Solution</div>
+  <h2>Ethical ethnopharmacology + an acoustic, community-governed archive.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Consent-first by design</h3>
+      <p>Every record carries attribution, community, region, license tier (listen-only / educational / community-internal) and an explicit consent flag. Nothing publishes without quorum.</p>
+    </div>
+    <div class="card">
+      <h3>Acoustic Oral Studio</h3>
+      <p>Waveform visualizer, scrubber, transcript-synced seeking, speed control, and a Web Audio harmonic synthesizer for language-learning playback.</p>
+    </div>
+    <div class="card">
+      <h3>Elder Council verification</h3>
+      <p>A 3-endorsement quorum from elders and culture-bearers publishes a record. Communities can withdraw at any time.</p>
+    </div>
+    <div class="card">
+      <h3>Guided submission pipeline</h3>
+      <p>Knowledge type, origin community, attribution, story, optional voice recording, and consent — in one flow. New records enter a pending queue.</p>
+    </div>
+  </div>
+  <div class="num">03</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 4 -->
+<section class="slide">
+  <div class="eyebrow">Dataset & Knowledge Schema</div>
+  <h2>10 published + 2 pending records across 6 knowledge domains.</h2>
+  <table>
+    <tr><th>Field</th><th>Examples</th></tr>
+    <tr><td>id / title</td><td>sami-aurora, ayahuasca-botany, toda-embroidery, hokulea-navigation, ainu-yukar…</td></tr>
+    <tr><td>category</td><td>Ethnomedicine, Traditional Crafts, Oral Folklore, Ethnobotany, Ecological Knowledge, Navigation</td></tr>
+    <tr><td>community / region</td><td>Sámi (Nordic), Shipibo-Konibo (Peru), Toda (Nilgiris), Māori (Aotearoa), Ainu (Hokkaido)…</td></tr>
+    <tr><td>attribution / license</td><td>Named knowledge keepers · listen-only / educational / community-internal</td></tr>
+    <tr><td>media</td><td>Attributed audio, transcript (original + community-approved translation), tags, status</td></tr>
+    <tr><td>status</td><td>published · pending (Elder Council) · verified (3 endorsements)</td></tr>
+  </table>
+  <p style="margin-top:14px; font-size:15px; opacity:0.7;">Records are illustrative composites for the hackathon — not real community records. All media is simulated.</p>
+  <div class="num">04</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 5 -->
+<section class="slide dark">
+  <div class="eyebrow">Technical Architecture</div>
+  <h2>Three static files. No backend. No tracking.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Frontend</h3>
+      <p>index.html + styles.css + app.js. Tailwind CSS (CDN), Lucide icons, Google Fonts, Unsplash imagery. State persisted in localStorage.</p>
+    </div>
+    <div class="card">
+      <h3>Audio layer</h3>
+      <p>Web Audio API harmonic synthesizer + Canvas waveform renderer. Real-time playhead, scrubbing, speed control, transcript-synced seeking.</p>
+    </div>
+    <div class="card">
+      <h3>Rendering</h3>
+      <p>Vanilla JS SPA with hash-free in-page navigation, IntersectionObserver reveals, requestAnimationFrame counters, responsive grid (390–1440 px).</p>
+    </div>
+    <div class="card">
+      <h3>Deployment</h3>
+      <p>GitHub Pages (static). Automated demo recording with Playwright + ffmpeg (H.264, 83.8 s). Zero build step, zero dependencies at runtime.</p>
+    </div>
+  </div>
+  <div class="num">05</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 6 -->
+<section class="slide">
+  <div class="eyebrow">Key Features</div>
+  <h2>Ethnopharmacology catalog + Acoustic Oral Studio.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Archive & search</h3>
+      <ul>
+        <li>Live search across title, community, region, tags</li>
+        <li>Category + region filters, map-pin filtering</li>
+        <li>Result counts, active-filter chips, clear-all</li>
+        <li>Narrative story modals with consent labels</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Oral Studio</h3>
+      <ul>
+        <li>Waveform with draggable playhead</li>
+        <li>Original + community-approved translation</li>
+        <li>Click any transcript line to seek</li>
+        <li>Speed, volume, ARIA slider, keyboard control</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Impact & map</h3>
+      <ul>
+        <li>Animated counters (stories, languages, elders)</li>
+        <li>Interactive regional map with pins</li>
+        <li>Dark mode, reduced-motion support</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Accessibility</h3>
+      <ul>
+        <li>Focus traps in modals, ARIA labels</li>
+        <li>Keyboard-operable waveform</li>
+        <li>Zero horizontal overflow 390–1440 px</li>
+      </ul>
+    </div>
+  </div>
+  <div class="num">06</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 7 -->
+<section class="slide dark">
+  <div class="eyebrow">Elder Council Verification</div>
+  <h2>Nagoya Protocol & FPIC compliance, built into the workflow.</h2>
+  <ul>
+    <li><strong>Quorum:</strong> 3 endorsements from elders + culture-bearers required to publish.</li>
+    <li><strong>Pending queue:</strong> every submission starts pending; never auto-published.</li>
+    <li><strong>Attribution:</strong> knowledge keepers named on every record, with reuse terms.</li>
+    <li><strong>Withdrawal:</strong> communities can withdraw a record at any time (deletion tooling on roadmap).</li>
+    <li><strong>Privacy tiers:</strong> listen-only, educational, community-internal — enforced at the media layer.</li>
+    <li><strong>Auditability:</strong> endorsement events are visible and traceable in the council view.</li>
+  </ul>
+  <div class="kpis" style="margin-top:18px;">
+    <div class="kpi"><div class="v">3</div><div class="l">Endorsement quorum</div></div>
+    <div class="kpi"><div class="v">FPIC</div><div class="l">Consent enforced</div></div>
+    <div class="kpi"><div class="v">Nagoya</div><div class="l">Protocol aligned</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">Auto-published records</div></div>
+  </div>
+  <div class="num">07</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 8 -->
+<section class="slide">
+  <div class="eyebrow">Prototype Results</div>
+  <h2>Live, verified, and accessible.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Live verification</h3>
+      <ul>
+        <li>Deployed: GitHub Pages, HTTP 200, no console errors</li>
+        <li>Repo public on <span class="mono">main</span> (2 commits)</li>
+        <li>Demo video: 83.8 s, H.264, 1600×900, 30 fps</li>
+        <li>YouTube: https://youtu.be/1q7em74otS0</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Quality checks</h3>
+      <ul>
+        <li>Zero horizontal overflow 390–1440 px</li>
+        <li>Dark mode + reduced-motion support</li>
+        <li>Keyboard + screen-reader friendly</li>
+        <li>Lighthouse-friendly static bundle</li>
+      </ul>
+    </div>
+  </div>
+  <div class="kpis" style="margin-top:18px;">
+    <div class="kpi" style="background:#f0ece4;"><div class="v">83.8s</div><div class="l">Demo duration</div></div>
+    <div class="kpi" style="background:#f0ece4;"><div class="v">10 MB</div><div class="l">Video size</div></div>
+    <div class="kpi" style="background:#f0ece4;"><div class="v">3 files</div><div class="l">Runtime bundle</div></div>
+    <div class="kpi" style="background:#f0ece4;"><div class="v">0</div><div class="l">Backend services</div></div>
+  </div>
+  <div class="num">08</div>
+  <div class="footer">EthnoVault · EthnoHack 2026</div>
+</section>
+
+<!-- Slide 9 -->
+<section class="slide accent">
+  <div class="eyebrow">Limitations · Responsible Research · Roadmap</div>
+  <h2>Honest about what's simulated. Clear about what's next.</h2>
+  <div class="grid2">
+    <div class="card" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.25);">
+      <h3>Limitations (simulated)</h3>
+      <ul>
+        <li>Audio, uploads, translations, endorsements, council actions run in-browser</li>
+        <li>Records are illustrative composites, not real community knowledge</li>
+        <li>No real identity, auth, or encrypted storage yet</li>
+      </ul>
+    </div>
+    <div class="card" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.25);">
+      <h3>Responsible research</h3>
+      <ul>
+        <li>Consent-first, attribution on every record</li>
+        <li>Community-controlled reuse tiers</li>
+        <li>No extraction, no tracking, no surveillance</li>
+      </ul>
+    </div>
+  </div>
+  <h3 style="margin-top:16px;">Roadmap</h3>
+  <p style="font-size:15px; opacity:0.95;">Encrypted community-held media storage · Offline-first PWA for low-connectivity regions · Production council identity & audit trails · True withdrawal/deletion tooling · Time-aligned transcripts & pronunciation guides · Multi-language interfaces · Partnerships with language nests & seed keepers.</p>
+  <div class="num">09</div>
+  <div class="footer">EthnoVault · EthnoHack 2026 · Thank you</div>
+</section>
+
+</body>
+</html>
