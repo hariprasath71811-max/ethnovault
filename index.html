@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EthnoVault — Living Indigenous Knowledge Archive</title>
+  <meta name="description" content="EthnoVault is a community-governed archive of oral histories, Indigenous languages, ethnobotany and traditional crafts — recorded in the voices that carry them." />
+  <meta name="theme-color" content="#FAF8F5" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231B2A19'/%3E%3Cpath d='M50 80V40' stroke='%23FAF8F5' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M50 52c0-15 11-26 26-26 0 15-11 26-26 26Z' fill='%23C4674A'/%3E%3Cpath d='M50 62c0-10-8-18-18-18 0 10 8 18 18 18Z' fill='%2398B488'/%3E%3C/svg%3E" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('ethnovault-theme');
+        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            sand: '#FAF8F5',
+            cream: '#F4EEE4',
+            bark: '#6E5C48',
+            forest: {
+              50: '#EEF3EC', 100: '#DCE7D7', 200: '#B9CFB1', 300: '#8FAE83',
+              400: '#648B56', 500: '#486B3D', 600: '#37552F', 700: '#2B4426',
+              800: '#22341F', 900: '#1B2A19', 950: '#101A10'
+            },
+            terracotta: {
+              50: '#FBF1EC', 100: '#F5DFD4', 200: '#EBBFA9', 300: '#DE9A79',
+              400: '#D07650', 500: '#C4674A', 600: '#A94A28', 700: '#8C3B22',
+              800: '#733321', 900: '#5F2C1F'
+            },
+            obsidian: { 700: '#262320', 800: '#1C1A17', 900: '#141210', 950: '#0D0C0A' }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Fraunces', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -32px rgba(27,42,25,0.38)',
+            card: '0 1px 2px rgba(27,42,25,0.04), 0 18px 44px -28px rgba(27,42,25,0.30)'
+          },
+          borderRadius: { '4xl': '2rem', '5xl': '2.75rem' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="min-h-screen bg-sand font-sans text-forest-950 antialiased selection:bg-terracotta-200 selection:text-forest-950 dark:bg-obsidian-950 dark:text-cream">
+  <div class="grain" aria-hidden="true"></div>
+  <a href="#archive" class="skip-link">Skip to the archive</a>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="relative z-40">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+      <div class="flex min-w-0 items-center">
+        <a href="#top" class="group flex min-w-0 items-center gap-2.5" aria-label="EthnoVault home">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-forest-900 text-cream shadow-lg shadow-forest-900/20 transition-transform duration-300 group-hover:-rotate-6 dark:bg-cream dark:text-forest-950">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21V10" /><path d="M12 13c0-3.9 3.1-7 7-7 0 3.9-3.1 7-7 7Z" />
+              <path d="M12 16c0-2.8-2.2-5-5-5 0 2.8 2.2 5 5 5Z" /><path d="M7 21h10" />
+            </svg>
+          </span>
+          <span class="flex min-w-0 flex-col items-start gap-1.5">
+            <span class="font-display text-[22px] font-semibold leading-none tracking-tight">EthnoVault</span>
+            <span class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-forest-900/12 bg-white/60 px-2 py-[3px] text-[8.5px] font-medium text-forest-800 dark:border-white/12 dark:bg-white/5 dark:text-cream/70">
+              <span class="relative flex h-1 w-1 shrink-0">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-terracotta-400 opacity-60"></span>
+                <span class="relative inline-flex h-1 w-1 rounded-full bg-terracotta-500"></span>
+              </span>
+              <span class="sm:hidden">1,200+ traditions</span>
+              <span class="hidden sm:inline">Preserving <strong class="font-semibold text-forest-950 dark:text-cream">1,200+</strong> oral traditions</span>
+            </span>
+          </span>
+        </a>
+      </div>
+
+      <nav class="hidden items-center gap-0.5 xl:flex" aria-label="Primary navigation">
+        <a class="nav-link" href="#archive">Explore Archive</a>
+        <button class="nav-link" type="button" data-category-jump="Ethnomedicine">Ethnobotany</button>
+        <a class="nav-link" href="#player">Oral Audio Player</a>
+        <button class="nav-link" type="button" data-open-submit>Submit Knowledge</button>
+        <button class="nav-link" type="button" data-open-verify>Community Verification</button>
+      </nav>
+
+      <div class="flex shrink-0 items-center gap-2">
+        <button id="themeToggle" type="button" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i data-lucide="moon" class="h-[18px] w-[18px] dark:hidden"></i>
+          <i data-lucide="sun" class="hidden h-[18px] w-[18px] dark:block"></i>
+        </button>
+        <button type="button" data-open-submit class="btn btn-primary hidden sm:inline-flex">
+          <i data-lucide="plus" class="h-4 w-4"></i> Share knowledge
+        </button>
+        <button id="menuBtn" type="button" class="icon-btn xl:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" hidden class="border-y border-forest-900/10 bg-sand/95 px-5 py-4 backdrop-blur-xl xl:hidden dark:border-white/10 dark:bg-obsidian-900/95">
+      <p class="mb-3 inline-flex items-center gap-2 rounded-full border border-forest-900/12 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-forest-700 dark:border-white/12 dark:text-cream/60">
+        <span class="h-1.5 w-1.5 rounded-full bg-terracotta-500"></span> Preserving 1,200+ oral traditions
+      </p>
+      <nav class="grid gap-1" aria-label="Mobile navigation">
+        <a class="nav-link justify-start text-base" href="#archive">Explore Archive</a>
+        <button class="nav-link justify-start text-base" type="button" data-category-jump="Ethnomedicine">Ethnobotany</button>
+        <a class="nav-link justify-start text-base" href="#player">Oral Audio Player</a>
+        <button class="nav-link justify-start text-base" type="button" data-open-submit>Submit Knowledge</button>
+        <button class="nav-link justify-start text-base" type="button" data-open-verify>Community Verification</button>
+      </nav>
+      <button type="button" data-open-submit class="btn btn-primary mt-3 w-full justify-center sm:hidden">
+        <i data-lucide="plus" class="h-4 w-4"></i> Share knowledge
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════ SEARCH + FILTER TOOLBAR ══════════ -->
+  <div class="sticky top-0 z-30 border-y border-forest-900/10 bg-sand/85 backdrop-blur-xl dark:border-white/10 dark:bg-obsidian-950/85">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex flex-col gap-3 py-3 lg:flex-row lg:items-center lg:justify-between">
+        <div class="relative w-full lg:max-w-[360px]">
+          <i data-lucide="search" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-forest-500 dark:text-cream/40"></i>
+          <label for="searchInput" class="sr-only">Search the archive</label>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Search stories, plants, communities…"
+            class="h-11 w-full rounded-full border border-forest-900/12 bg-white/70 pl-10 pr-16 text-sm text-forest-950 placeholder:text-forest-500/70 focus:border-forest-500 focus:outline-none focus:ring-4 focus:ring-forest-500/10 dark:border-white/12 dark:bg-white/5 dark:text-cream dark:placeholder:text-cream/35" />
+          <kbd class="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-md border border-forest-900/10 bg-white/70 px-1.5 py-0.5 font-sans text-[10px] font-medium text-forest-500 sm:block dark:border-white/10 dark:bg-white/5 dark:text-cream/40">/</kbd>
+          <button id="clearSearch" type="button" hidden class="absolute right-3 top-1/2 grid h-6 w-6 -translate-y-1/2 place-items-center rounded-full bg-forest-900/8 text-forest-700 hover:bg-forest-900/15 dark:bg-white/10 dark:text-cream/70" aria-label="Clear search">
+            <i data-lucide="x" class="h-3.5 w-3.5"></i>
+          </button>
+        </div>
+        <div id="categoryPills" class="no-scrollbar flex items-center gap-1.5 overflow-x-auto pb-0.5" role="group" aria-label="Filter by category"></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- ══════════ HERO ══════════ -->
+    <section class="relative overflow-hidden">
+      <div aria-hidden="true" class="pointer-events-none absolute -left-40 -top-48 h-[560px] w-[560px] rounded-full bg-forest-300/25 blur-3xl dark:bg-forest-500/10"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute -right-52 top-20 h-[520px] w-[520px] rounded-full bg-terracotta-200/35 blur-3xl dark:bg-terracotta-700/10"></div>
+      <div class="relative mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-8 sm:pt-14 lg:pb-20">
+        <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div class="reveal in">
+            <p class="inline-flex items-center gap-2 rounded-full border border-forest-900/12 bg-white/60 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-700 dark:border-white/12 dark:bg-white/5 dark:text-cream/60">
+              <i data-lucide="sprout" class="h-3.5 w-3.5 text-terracotta-500"></i> Indigenous-led · Community governed
+            </p>
+            <h1 class="mt-5 font-display text-[clamp(2.65rem,6.2vw,4.6rem)] font-medium leading-[0.94] tracking-[-0.035em]">
+              The archive that<br /><span class="italic text-terracotta-500 dark:text-terracotta-400">listens.</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-[15px] leading-relaxed text-forest-800/80 sm:text-base dark:text-cream/65">
+              A living home for the songs, stories, plant wisdom and craft of Indigenous peoples — kept in their own voices, in their own languages, on their own terms.
+            </p>
+            <div class="mt-7 flex flex-wrap items-center gap-3">
+              <a href="#archive" class="btn btn-primary">
+                Explore the archive <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </a>
+              <button type="button" data-open-submit class="btn btn-ghost">
+                <i data-lucide="mic" class="h-4 w-4"></i> Share your knowledge
+              </button>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <div class="flex items-center">
+                <span class="avatar" style="background:#2B4426;color:#F4EEE4">AN</span>
+                <span class="avatar -ml-2" style="background:#C4674A;color:#fff">TK</span>
+                <span class="avatar -ml-2" style="background:#8FAE83;color:#101A10">MJ</span>
+                <span class="avatar -ml-2" style="background:#F5DFD4;color:#733321">+121</span>
+              </div>
+              <p class="text-xs leading-snug text-forest-700 dark:text-cream/55">
+                <strong class="font-semibold text-forest-950 dark:text-cream">124 knowledge keepers</strong><br class="hidden sm:block" />
+                <span class="text-forest-600 dark:text-cream/45">across 38 communities · 4 continents</span>
+              </p>
+              <span class="hidden items-center gap-1.5 rounded-full border border-forest-900/10 px-3 py-1.5 text-[10px] font-medium text-forest-700 sm:inline-flex dark:border-white/10 dark:text-cream/55">
+                <i data-lucide="shield-check" class="h-3.5 w-3.5 text-forest-500"></i> Elder verified
+              </span>
+            </div>
+          </div>
+
+          <div class="relative reveal in">
+            <article class="group relative overflow-hidden rounded-[2rem] border border-forest-900/10 bg-forest-900 shadow-soft dark:border-white/10">
+              <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1400&q=80" alt="Green northern lights dancing above a snow-covered forest" class="h-[420px] w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03] sm:h-[470px]" fetchpriority="high" onerror="this.style.display='none'" />
+              <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/35 to-forest-950/15"></div>
+              <div class="absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-5">
+                <span class="glass-chip"><i data-lucide="headphones" class="h-3.5 w-3.5"></i> Featured field recording</span>
+                <span class="glass-chip tabular-nums">03:12</span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-terracotta-300">Sámi · Oral Folklore</p>
+                <h2 class="mt-2 max-w-sm font-display text-[26px] font-medium leading-tight text-cream sm:text-[30px]">
+                  The northern lights are the ancestors' campfires
+                </h2>
+                <p class="mt-2 line-clamp-2 max-w-md text-xs leading-relaxed text-cream/65">
+                  “Guovssahas are not weather. They are our people, walking the sky — and the old songs teach us when to look, and when to lower our eyes.”
+                </p>
+                <div class="mt-5 flex items-center gap-4">
+                  <button type="button" data-hero-play class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-cream text-forest-950 shadow-lg transition hover:scale-105 hover:bg-white focus:outline-none focus-visible:ring-4 focus-visible:ring-cream/40" aria-label="Play featured Sámi recording">
+                    <i data-lucide="play" class="ml-0.5 h-5 w-5 fill-current"></i>
+                  </button>
+                  <div class="min-w-0 flex-1">
+                    <div class="mini-wave mini-wave--light" data-hero-wave aria-hidden="true"></div>
+                    <p class="mt-2 flex items-center justify-between text-[10px] font-medium uppercase tracking-[0.14em] text-cream/55">
+                      <span>Áilu Niillas · joik</span><span class="tabular-nums">Northern Sámi</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <div class="seal seal--float hidden sm:flex">
+              <i data-lucide="badge-check" class="h-4 w-4"></i>
+              <span>Council<br />verified</span>
+            </div>
+            <div class="absolute -right-3 -top-3 hidden rotate-6 rounded-2xl border border-forest-900/10 bg-white/95 px-3.5 py-2.5 shadow-card backdrop-blur sm:block dark:border-white/10 dark:bg-obsidian-800/95">
+              <p class="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-forest-700 dark:text-cream/60">
+                <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-forest-500"></span> Recording now
+              </p>
+              <p class="mt-0.5 text-[11px] text-forest-600 dark:text-cream/45">+14 this week</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ IMPACT STATS ══════════ -->
+    <section aria-label="Archive impact metrics" class="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+        <div class="stat-card reveal">
+          <div class="flex items-start justify-between gap-2">
+            <span class="stat-icon"><i data-lucide="book-open" class="h-4 w-4"></i></span>
+            <span class="stat-trend">+12 this month</span>
+          </div>
+          <p class="mt-4 font-display text-3xl font-medium tabular-nums sm:text-[2.35rem]"><span data-counter="3420">0</span></p>
+          <p class="mt-1 text-[13px] font-medium text-forest-900 dark:text-cream/80">Stories Preserved</p>
+          <p class="mt-0.5 text-[11px] text-forest-600 dark:text-cream/40">in 38 living languages</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="flex items-start justify-between gap-2">
+            <span class="stat-icon"><i data-lucide="languages" class="h-4 w-4"></i></span>
+            <span class="stat-trend replace">9 newly recorded</span>
+          </div>
+          <p class="mt-4 font-display text-3xl font-medium tabular-nums sm:text-[2.35rem]"><span data-counter="48">0</span></p>
+          <p class="mt-1 text-[13px] font-medium text-forest-900 dark:text-cream/80">Endangered Dialects</p>
+          <p class="mt-0.5 text-[11px] text-forest-600 dark:text-cream/40">with fluent speaker review</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="flex items-start justify-between gap-2">
+            <span class="stat-icon"><i data-lucide="users" class="h-4 w-4"></i></span>
+            <span class="stat-trend">+6 this season</span>
+          </div>
+          <p class="mt-4 font-display text-3xl font-medium tabular-nums sm:text-[2.35rem]"><span data-counter="124">0</span></p>
+          <p class="mt-1 text-[13px] font-medium text-forest-900 dark:text-cream/80">Indigenous Contributors</p>
+          <p class="mt-0.5 text-[11px] text-forest-600 dark:text-cream/40">paid, credited, consenting</p>
+        </div>
+        <div class="stat-card reveal">
+          <div class="flex items-start justify-between gap-2">
+            <span class="stat-icon"><i data-lucide="heart-handshake" class="h-4 w-4"></i></span>
+            <span class="stat-trend">always</span>
+          </div>
+          <p class="mt-4 font-display text-3xl font-medium tabular-nums sm:text-[2.35rem]"><span data-counter="100">0</span><span class="text-terracotta-500">%</span></p>
+          <p class="mt-1 text-[13px] font-medium text-forest-900 dark:text-cream/80">Attribution Secured</p>
+          <p class="mt-0.5 text-[11px] text-forest-600 dark:text-cream/40">free, prior & informed consent</p>
+        </div>
+      </div>
+      <p class="mt-3 flex items-center justify-end gap-1.5 text-[10px] uppercase tracking-[0.14em] text-forest-500/80 dark:text-cream/30">
+        <span class="h-1 w-1 rounded-full bg-forest-500"></span> Live archive metrics · updated by the community
+      </p>
+    </section>
+
+    <!-- ══════════ HERITAGE MAP ══════════ -->
+    <section id="map" class="py-14 sm:py-20">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mb-7 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+          <div class="max-w-2xl reveal">
+            <p class="eyebrow"><span class="h-px w-7 bg-terracotta-500"></span> The heritage atlas</p>
+            <h2 class="mt-3 font-display text-3xl font-medium tracking-tight sm:text-[2.6rem]">Every marker holds<br class="hidden sm:block" /> a way of knowing.</h2>
+            <p class="mt-3 max-w-lg text-sm leading-relaxed text-forest-700 dark:text-cream/55">
+              Ten landscapes, one living archive. Choose a marker to travel the collection by region — then listen where the story leads.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="mapActiveRegion" hidden class="inline-flex items-center gap-1.5 rounded-full bg-terracotta-500/12 px-3 py-1.5 text-[11px] font-medium text-terracotta-700 dark:bg-terracotta-500/15 dark:text-terracotta-300"></span>
+            <button id="mapReset" type="button" class="btn btn-ghost btn-sm">
+              <i data-lucide="rotate-ccw" class="h-3.5 w-3.5"></i> Reset map
+            </button>
+          </div>
+        </div>
+
+        <div class="reveal overflow-hidden rounded-[2rem] border border-forest-900/10 bg-[#EFE8DA] shadow-card dark:border-white/10 dark:bg-forest-900/30">
+          <div class="no-scrollbar overflow-x-auto">
+            <div class="relative aspect-[1000/480] w-full min-w-[780px]">
+              <svg class="absolute inset-0 h-full w-full" viewBox="0 0 1000 480" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#C4674A" stop-opacity="0.10" />
+                    <stop offset="100%" stop-color="#C4674A" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <rect width="1000" height="480" fill="url(#mapGlow)" />
+                <g class="map-grid">
+                  <path d="M0 80H1000M0 160H1000M0 240H1000M0 320H1000M0 400H1000" />
+                  <path d="M120 0V480M280 0V480M440 0V480M600 0V480M760 0V480M920 0V480" />
+                </g>
+                <g class="continent">
+                  <path d="M96 96C140 58 220 52 286 66c54 12 80 38 66 70-14 32-52 34-68 60-12 22-16 48-36 62-12 10-32 8-42-10-10-18-8-42-22-58-18-20-50-26-64-46-14-20-36-32-24-48Z" />
+                  <path d="M330 44c28-10 66-2 74 22 8 26-18 42-42 34-20-6-32-26-32-56Z" />
+                  <path d="M250 250c18 8 40 28 58 48l-12 14c-18-20-40-38-56-48Z" />
+                  <path d="M310 300c30-14 62-4 80 20 16 22 14 52 6 78-8 26-24 54-44 60-18 6-34-10-38-34-4-24-16-46-18-70-2-24 0-44 14-54Z" />
+                  <path d="M468 118c18-24 56-34 88-26 30 8 42 30 32 50-10 20-36 24-54 36-18 12-44 10-58-6-14-16-22-34-8-54Z" />
+                  <path d="M540 70c18-12 36-4 34 16-2 18-18 22-30 12-10-8-12-20-4-28Z" />
+                  <path d="M478 206c34-22 88-22 118 0 24 18 32 48 24 80-8 32-26 56-36 86-10 30-24 54-44 58-20 4-32-18-40-44-8-26-30-46-36-74-6-28-4-62 2-80 4-12 4-18 12-26Z" />
+                  <path d="M588 110c38-26 110-40 174-32 56 8 110 32 124 72 14 40-14 64-42 78-28 14-52 8-74 18-22 10-44 2-62-14-18-16-32-18-48-28-20-12-48-16-62-36-14-20-28-40-10-58Z" />
+                  <path d="M700 232c18-10 36-2 40 18 4 20-10 42-24 44-14 2-24-16-22-36 2-10 0-20 6-26Z" />
+                  <path d="M782 246c18-8 38 0 40 18 2 18-12 30-26 24-14-6-22-26-14-42Z" />
+                  <path d="M798 352c32-20 80-18 104 8 24 26 16 64-10 76-26 12-66 6-86-14-20-20-26-54-8-70Z" />
+                  <path d="M936 432c10-8 20 0 16 14-4 14-14 18-20 10-6-8-4-18 4-24Z" />
+                  <path d="M886 146c10-4 18 4 16 16-2 12-10 18-16 12-6-6-8-24 0-28Z" />
+                  <path d="M832 310c8-6 18-2 18 8 0 10-8 16-16 12-8-4-10-14-2-20Z" />
+                  <path d="M862 320c8-4 16 2 14 12-2 10-10 14-16 8-6-6-6-16 2-20Z" />
+                  <path d="M884 306c6-4 14 0 12 8-2 8-8 12-12 8-4-4-6-12 0-16Z" />
+                </g>
+                <g class="map-route">
+                  <path d="M572 92C700 50 820 90 888 160" />
+                  <path d="M350 350C470 330 500 300 552 300" />
+                  <path d="M716 268C760 300 810 340 852 380" />
+                </g>
+                <g class="map-compass">
+                  <circle cx="934" cy="66" r="20" />
+                  <path d="M934 50l6 22-6-6-6 6 6-22Z" />
+                  <text x="934" y="42" text-anchor="middle">N</text>
+                </g>
+              </svg>
+              <div id="mapPins" class="absolute inset-0"></div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 border-t border-forest-900/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between dark:border-white/10">
+            <p class="flex items-center gap-2 text-[11px] text-forest-700 dark:text-cream/50">
+              <span class="relative flex h-2 w-2"><span class="absolute h-full w-full animate-ping rounded-full bg-terracotta-400 opacity-70"></span><span class="relative h-2 w-2 rounded-full bg-terracotta-500"></span></span>
+              Tap a marker to filter the archive below
+              <span class="hidden text-forest-400 sm:inline dark:text-cream/25">· swipe to explore on mobile</span>
+            </p>
+            <div class="flex items-center gap-4 text-[10px] uppercase tracking-[0.14em] text-forest-500 dark:text-cream/35">
+              <span>10 regions</span><span class="h-3 w-px bg-forest-900/15 dark:bg-white/15"></span>
+              <span>12 records</span><span class="h-3 w-px bg-forest-900/15 dark:bg-white/15"></span>
+              <span>Community mapped</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ ARCHIVE GRID ══════════ -->
+    <section id="archive" class="border-y border-forest-900/10 bg-cream/55 py-14 sm:py-20 dark:border-white/10 dark:bg-white/[0.02]">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-xl reveal">
+            <p class="eyebrow"><span class="h-px w-7 bg-terracotta-500"></span> Explore the archive</p>
+            <h2 class="mt-3 font-display text-3xl font-medium tracking-tight sm:text-[2.6rem]">Living knowledge,<br class="hidden sm:block" /> not artefacts.</h2>
+            <p class="mt-3 text-sm leading-relaxed text-forest-700 dark:text-cream/55">
+              Every record is shared with free, prior and informed consent. What you can hear here is only what the community chose to make public.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="flex items-center gap-1.5 text-xs text-forest-600 dark:text-cream/45">
+              <i data-lucide="library" class="h-4 w-4"></i>
+              <span id="resultCount">11 records</span>
+            </div>
+            <div class="relative">
+              <label for="sortSelect" class="sr-only">Sort records</label>
+              <select id="sortSelect" class="h-10 appearance-none rounded-full border border-forest-900/12 bg-white/70 pl-9 pr-8 text-xs font-medium text-forest-800 focus:border-forest-500 focus:outline-none focus:ring-4 focus:ring-forest-500/10 dark:border-white/12 dark:bg-white/5 dark:text-cream/80">
+                <option value="curated">Curated order</option>
+                <option value="az">Title A–Z</option>
+                <option value="region">By region</option>
+                <option value="endangered">Most endangered</option>
+              </select>
+              <i data-lucide="arrow-up-down" class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-forest-500 dark:text-cream/40"></i>
+              <i data-lucide="chevron-down" class="pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-forest-500 dark:text-cream/40"></i>
+            </div>
+          </div>
+        </div>
+
+        <div id="activeFilters" class="mt-6 flex flex-wrap items-center gap-2"></div>
+
+        <div id="archiveGrid" class="mt-7 grid gap-5 sm:grid-cols-2 xl:grid-cols-3"></div>
+
+        <div id="emptyState" hidden class="mt-8 rounded-[2rem] border border-dashed border-forest-900/20 bg-white/40 px-6 py-16 text-center dark:border-white/15 dark:bg-white/[0.02]">
+          <span class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-forest-900/5 text-forest-600 dark:bg-white/5 dark:text-cream/50">
+            <i data-lucide="search-x" class="h-6 w-6"></i>
+          </span>
+          <h3 class="mt-4 font-display text-xl font-medium">No stories match that search</h3>
+          <p class="mx-auto mt-2 max-w-sm text-sm text-forest-600 dark:text-cream/45">Try a different word, community or category — or clear the filters to browse everything.</p>
+          <button id="emptyReset" type="button" class="btn btn-primary mt-5"><i data-lucide="rotate-ccw" class="h-4 w-4"></i> Clear all filters</button>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-forest-900/10 bg-white/50 px-5 py-4 sm:flex-row dark:border-white/10 dark:bg-white/[0.03]">
+          <p class="flex items-center gap-2.5 text-xs text-forest-700 dark:text-cream/50">
+            <i data-lucide="lock" class="h-4 w-4 shrink-0 text-forest-500"></i>
+            Some records are held privately and are not listed here. Communities can withdraw any record, at any time.
+          </p>
+          <button type="button" data-open-verify class="story-link shrink-0">How verification works <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ LISTEN & TRANSLATE PLAYER ══════════ -->
+    <section id="player" class="py-14 sm:py-20">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mb-8 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+          <div class="max-w-2xl reveal">
+            <p class="eyebrow"><span class="h-px w-7 bg-terracotta-500"></span> Listen &amp; translate</p>
+            <h2 class="mt-3 font-display text-3xl font-medium tracking-tight sm:text-[2.6rem]">Hear it as it was<br class="hidden sm:block" /> meant to be heard.</h2>
+            <p class="mt-3 max-w-lg text-sm leading-relaxed text-forest-700 dark:text-cream/55">
+              Move between the original voice and a community-approved English translation. Pronunciation, cadence and silence are part of the record.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 text-[11px]">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-forest-900/12 bg-white/60 px-3 py-1.5 font-medium text-forest-700 dark:border-white/12 dark:bg-white/5 dark:text-cream/55">
+              <i data-lucide="audio-lines" class="h-3.5 w-3.5 text-terracotta-500"></i> Simulated field audio
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-forest-900/12 bg-white/60 px-3 py-1.5 font-medium text-forest-700 dark:border-white/12 dark:bg-white/5 dark:text-cream/55">
+              <i data-lucide="shield-check" class="h-3.5 w-3.5 text-forest-500"></i> Elder approved transcript
+            </span>
+          </div>
+        </div>
+
+        <div class="reveal relative overflow-hidden rounded-[2rem] border border-white/10 bg-forest-950 text-cream shadow-soft">
+          <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-terracotta-500/15 blur-3xl"></div>
+          <div aria-hidden="true" class="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-forest-400/15 blur-3xl"></div>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-[0.05]" style="background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:26px 26px"></div>
+
+          <div class="relative grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[290px_minmax(0,1fr)]">
+            <aside class="border-b border-white/10 p-5 sm:p-6 lg:border-b-0 lg:border-r">
+              <div class="flex items-center justify-between">
+                <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-cream/45">Featured recordings</p>
+                <span class="h-1.5 w-1.5 rounded-full bg-forest-400"></span>
+              </div>
+              <div id="playerTabs" class="mt-3 space-y-1.5"></div>
+              <div class="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <p class="flex items-center gap-2 text-[11px] font-medium text-cream/80">
+                  <i data-lucide="heart-handshake" class="h-4 w-4 text-terracotta-300"></i> Consent, not capture
+                </p>
+                <p class="mt-2 text-[11px] leading-relaxed text-cream/45">
+                  Every recording is licensed by its keeper. Reuse requires written permission from the originating community.
+                </p>
+              </div>
+            </aside>
+
+            <div class="min-w-0 p-5 sm:p-7 lg:p-8">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span id="playerLanguage" class="rounded-full border border-white/12 bg-white/[0.06] px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-cream/60">Northern Sámi</span>
+                    <span class="rounded-full bg-terracotta-500/15 px-2.5 py-1 text-[10px] font-medium text-terracotta-300" id="playerCategory">Oral Folklore</span>
+                  </div>
+                  <h3 id="playerTitle" class="mt-3 font-display text-2xl font-medium leading-tight sm:text-[28px]">Sámi Northern Lights Folklore</h3>
+                  <p id="playerMeta" class="mt-1.5 text-xs text-cream/45">Sápmi, Arctic Lapland · with Áilu Niillas</p>
+                </div>
+                <button id="downloadTranscript" type="button" class="inline-flex items-center gap-1.5 rounded-full border border-white/12 px-3 py-2 text-[11px] font-medium text-cream/60 transition hover:border-white/25 hover:text-cream" title="Download a text copy of this transcript">
+                  <i data-lucide="download" class="h-3.5 w-3.5"></i> Transcript
+                </button>
+              </div>
+
+              <div class="mt-6">
+                <div id="waveform" class="group/wave relative flex h-24 cursor-pointer items-end gap-[3px] rounded-xl px-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta-400/60" role="slider" tabindex="0" aria-label="Audio position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                  <div id="waveBars" class="flex h-full w-full items-end gap-[3px]"></div>
+                  <span id="wavePlayhead" class="wave-playhead" aria-hidden="true"></span>
+                </div>
+                <div class="mt-2 flex items-center justify-between text-[11px] tabular-nums text-cream/45">
+                  <span id="timeCurrent">0:00</span>
+                  <span id="timeDuration">3:12</span>
+                </div>
+              </div>
+
+              <div class="mt-5 flex flex-wrap items-center gap-3">
+                <button id="skipBack" type="button" class="player-icon-btn" aria-label="Back 10 seconds"><i data-lucide="rotate-ccw" class="h-4 w-4"></i><span class="absolute -bottom-0.5 text-[7px] font-bold">10</span></button>
+                <button id="mainPlay" type="button" class="grid h-14 w-14 place-items-center rounded-full bg-cream text-forest-950 shadow-xl transition hover:scale-105 hover:bg-white focus:outline-none focus-visible:ring-4 focus-visible:ring-cream/30" data-playing="false" aria-label="Play recording">
+                  <i data-lucide="play" class="icon-play ml-0.5 h-6 w-6 fill-current"></i>
+                  <i data-lucide="pause" class="icon-pause h-6 w-6 fill-current"></i>
+                </button>
+                <button id="skipForward" type="button" class="player-icon-btn" aria-label="Forward 10 seconds"><i data-lucide="rotate-cw" class="h-4 w-4"></i><span class="absolute -bottom-0.5 text-[7px] font-bold">10</span></button>
+                <div class="ml-1 h-8 w-px bg-white/10"></div>
+                <button id="speedBtn" type="button" class="rounded-full border border-white/12 px-3 py-1.5 text-[11px] font-semibold tabular-nums text-cream/60 transition hover:text-cream" aria-label="Playback speed">1×</button>
+                <p class="ml-auto flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-cream/35">
+                  <span id="playerStatusDot" class="h-1.5 w-1.5 rounded-full bg-cream/25"></span>
+                  <span id="playerStatus">Paused</span>
+                </p>
+              </div>
+
+              <div class="mt-7 overflow-hidden rounded-2xl border border-white/10 bg-black/15">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-4 py-3">
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="quote" class="h-3.5 w-3.5 text-terracotta-300"></i>
+                    <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-cream/50">Transcript</span>
+                    <span id="transcriptLangLabel" class="rounded-full bg-white/8 px-2 py-0.5 text-[9px] font-medium text-cream/45">Northern Sámi</span>
+                  </div>
+                  <div class="inline-flex rounded-full border border-white/10 bg-white/[0.04] p-0.5" role="group" aria-label="Subtitle language">
+                    <button type="button" class="subtitle-btn is-active" data-subtitle="original" aria-pressed="true">Original script</button>
+                    <button type="button" class="subtitle-btn" data-subtitle="english" aria-pressed="false">English</button>
+                  </div>
+                </div>
+                <div id="transcriptLines" class="divide-y divide-white/[0.06]"></div>
+                <p class="border-t border-white/10 px-4 py-2.5 text-[10px] leading-relaxed text-cream/30">
+                  Demo experience: audio is simulated and transcripts are illustrative. Real records carry community-approved translations and attribution.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ KNOWLEDGE SOVEREIGNTY ══════════ -->
+    <section class="pb-14 pt-2 sm:pb-20">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal relative overflow-hidden rounded-[2.5rem] bg-forest-900 px-6 py-10 text-cream sm:px-10 sm:py-12 lg:px-14 dark:bg-forest-900/70">
+          <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-28 h-80 w-80 rounded-full bg-terracotta-500/15 blur-3xl"></div>
+          <div aria-hidden="true" class="pointer-events-none absolute -bottom-36 left-1/3 h-80 w-80 rounded-full bg-forest-300/10 blur-3xl"></div>
+          <div class="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <p class="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-terracotta-300">
+                <i data-lucide="shield-check" class="h-4 w-4"></i> Our promise
+              </p>
+              <h2 class="mt-3 font-display text-3xl font-medium leading-tight tracking-tight sm:text-[2.7rem]">
+                Knowledge belongs<br class="hidden sm:block" /> to its <span class="italic text-terracotta-300">keepers.</span>
+              </h2>
+              <p class="mt-4 max-w-lg text-sm leading-relaxed text-cream/60">
+                EthnoVault is not a museum. It is a set of agreements — with elders, linguists and families — about what may be recorded, who may listen, and how a story should travel.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <button type="button" data-open-verify class="btn btn-light">
+                  <i data-lucide="badge-check" class="h-4 w-4"></i> See the verification council
+                </button>
+                <button type="button" data-open-submit class="btn btn-outline-light">
+                  <i data-lucide="mic" class="h-4 w-4"></i> Contribute a record
+                </button>
+              </div>
+            </div>
+            <ul class="grid gap-3">
+              <li class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-terracotta-500/15 text-terracotta-300"><i data-lucide="hand" class="h-5 w-5"></i></span>
+                <div><p class="text-sm font-medium">Consent before collection</p><p class="mt-1 text-xs leading-relaxed text-cream/45">Free, prior and informed consent is documented for every single record — and can be withdrawn.</p></div>
+              </li>
+              <li class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-forest-400/15 text-forest-200"><i data-lucide="landmark" class="h-5 w-5"></i></span>
+                <div><p class="text-sm font-medium">Community owns the record</p><p class="mt-1 text-xs leading-relaxed text-cream/45">Attribution and licensing stay with the originating community. We are guests, not owners.</p></div>
+              </li>
+              <li class="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-cream/10 text-cream/80"><i data-lucide="sprout" class="h-5 w-5"></i></span>
+                <div><p class="text-sm font-medium">Living, never frozen</p><p class="mt-1 text-xs leading-relaxed text-cream/45">Records are updated as language and practice evolve. A living archive listens back.</p></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="border-t border-forest-900/10 bg-cream/50 dark:border-white/10 dark:bg-obsidian-900/40">
+    <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+      <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div>
+          <a href="#top" class="flex items-center gap-2.5">
+            <span class="grid h-9 w-9 place-items-center rounded-xl bg-forest-900 text-cream dark:bg-cream dark:text-forest-950">
+              <svg viewBox="0 0 24 24" class="h-4.5 w-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21V10" /><path d="M12 13c0-3.9 3.1-7 7-7 0 3.9-3.1 7-7 7Z" />
+                <path d="M12 16c0-2.8-2.2-5-5-5 0 2.8 2.2 5 5 5Z" /><path d="M7 21h10" />
+              </svg>
+            </span>
+            <span class="font-display text-lg font-semibold">EthnoVault</span>
+          </a>
+          <p class="mt-4 max-w-xs text-xs leading-relaxed text-forest-600 dark:text-cream/45">
+            A living Indigenous knowledge archive, designed with rather than about communities. Written, recorded and governed with consent.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-2 rounded-full border border-forest-900/10 px-3 py-1.5 text-[10px] font-medium text-forest-700 dark:border-white/10 dark:text-cream/50">
+            <span class="h-1.5 w-1.5 rounded-full bg-forest-500"></span> Indigenous-led since 2019
+          </span>
+        </div>
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-500 dark:text-cream/35">Archive</p>
+          <ul class="mt-4 space-y-2.5 text-xs text-forest-700 dark:text-cream/55">
+            <li><a class="footer-link" href="#archive">All records</a></li>
+            <li><button class="footer-link" type="button" data-category-jump="Oral Folklore">Oral folklore</button></li>
+            <li><button class="footer-link" type="button" data-category-jump="Native Languages">Native languages</button></li>
+            <li><button class="footer-link" type="button" data-category-jump="Ethnomedicine">Ethnobotany</button></li>
+            <li><button class="footer-link" type="button" data-category-jump="Traditional Crafts">Traditional crafts</button></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-500 dark:text-cream/35">Participate</p>
+          <ul class="mt-4 space-y-2.5 text-xs text-forest-700 dark:text-cream/55">
+            <li><button class="footer-link" type="button" data-open-submit>Submit knowledge</button></li>
+            <li><button class="footer-link" type="button" data-open-verify>Community verification</button></li>
+            <li><a class="footer-link" href="#player">Listen &amp; translate</a></li>
+            <li><a class="footer-link" href="#map">Heritage atlas</a></li>
+          </ul>
+        </div>
+        <div id="footer-ethics">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-forest-500 dark:text-cream/35">Trust</p>
+          <ul class="mt-4 space-y-2.5 text-xs text-forest-700 dark:text-cream/55">
+            <li><span class="footer-link cursor-default">Consent &amp; ethics charter</span></li>
+            <li><span class="footer-link cursor-default">Data sovereignty</span></li>
+            <li><span class="footer-link cursor-default">Accessibility statement</span></li>
+            <li><span class="footer-link cursor-default">Cultural attribution policy</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col gap-3 border-t border-forest-900/10 pt-6 text-[11px] text-forest-500 sm:flex-row sm:items-center sm:justify-between dark:border-white/10 dark:text-cream/30">
+        <p>© 2026 EthnoVault Collective. Knowledge remains with its keepers.</p>
+        <p class="max-w-xl sm:text-right">Demonstration experience. Recordings, audio and translations are illustrative; community names are used with respect.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastRegion" class="pointer-events-none fixed bottom-4 right-4 z-[100] flex w-[calc(100%-2rem)] max-w-sm flex-col gap-2 sm:bottom-6 sm:right-6" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ══════════ STORY MODAL ══════════ -->
+  <div id="storyModal" class="modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel modal-panel--story" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close story">
+        <i data-lucide="x" class="h-4 w-4"></i>
+      </button>
+      <div id="storyContent"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ SUBMIT KNOWLEDGE MODAL ══════════ -->
+  <div id="submitModal" class="modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel modal-panel--form" role="dialog" aria-modal="true" aria-labelledby="submitTitle">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close submission form">
+        <i data-lucide="x" class="h-4 w-4"></i>
+      </button>
+      <div class="border-b border-forest-900/10 px-6 pb-5 pt-6 sm:px-8 dark:border-white/10">
+        <p class="eyebrow"><span class="h-px w-6 bg-terracotta-500"></span> Contribute</p>
+        <h2 id="submitTitle" class="mt-2 font-display text-2xl font-medium tracking-tight sm:text-3xl">Share knowledge with the vault</h2>
+        <p class="mt-2 max-w-xl text-xs leading-relaxed text-forest-600 dark:text-cream/45">
+          Submissions are reviewed by the community verification council before publication. Nothing is made public without consent.
+        </p>
+      </div>
+
+      <form id="submitForm" novalidate class="p-6 sm:p-8">
+        <div class="space-y-6">
+          <fieldset>
+            <legend class="field-label">Knowledge type <span class="text-terracotta-500">*</span></legend>
+            <div id="typeGrid" class="mt-2 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+              <label class="type-card is-active">
+                <input type="radio" name="knowledgeType" value="Oral Folklore" class="sr-only" checked />
+                <span class="type-icon"><i data-lucide="sparkles" class="h-4 w-4"></i></span>
+                <span class="text-xs font-medium">Folklore</span>
+                <span class="text-[10px] text-forest-500 dark:text-cream/35">Story / song</span>
+              </label>
+              <label class="type-card">
+                <input type="radio" name="knowledgeType" value="Native Languages" class="sr-only" />
+                <span class="type-icon"><i data-lucide="languages" class="h-4 w-4"></i></span>
+                <span class="text-xs font-medium">Dialect</span>
+                <span class="text-[10px] text-forest-500 dark:text-cream/35">Words / pronunciation</span>
+              </label>
+              <label class="type-card">
+                <input type="radio" name="knowledgeType" value="Ethnomedicine" class="sr-only" />
+                <span class="type-icon"><i data-lucide="leaf" class="h-4 w-4"></i></span>
+                <span class="text-xs font-medium">Flora</span>
+                <span class="text-[10px] text-forest-500 dark:text-cream/35">Plant wisdom</span>
+              </label>
+              <label class="type-card">
+                <input type="radio" name="knowledgeType" value="Traditional Crafts" class="sr-only" />
+                <span class="type-icon"><i data-lucide="palette" class="h-4 w-4"></i></span>
+                <span class="text-xs font-medium">Craft</span>
+                <span class="text-[10px] text-forest-500 dark:text-cream/35">Making / technique</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="entryTitle" class="field-label">Title of the knowledge <span class="text-terracotta-500">*</span></label>
+              <input id="entryTitle" name="title" type="text" maxlength="90" placeholder="e.g. The story of the seven sisters" class="field" />
+              <p class="field-error" data-error-for="title" hidden></p>
+            </div>
+            <div>
+              <label for="entryCommunity" class="field-label">Origin community <span class="text-terracotta-500">*</span></label>
+              <input id="entryCommunity" name="community" type="text" placeholder="e.g. Toda community, Nilgiris" class="field" />
+              <p class="field-error" data-error-for="community" hidden></p>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="entryRegion" class="field-label">Region <span class="text-terracotta-500">*</span></label>
+              <div class="relative">
+                <select id="entryRegion" name="region" class="field appearance-none pr-9">
+                  <option value="">Select a region…</option>
+                  <option>Arctic Lapland</option>
+                  <option>Nilgiris, India</option>
+                  <option>Amazon Basin, Peru</option>
+                  <option>Andes, Peru</option>
+                  <option>Oaxaca, Mexico</option>
+                  <option>Hawaiʻi, USA</option>
+                  <option>Rift Valley, Kenya</option>
+                  <option>Arnhem Land, Australia</option>
+                  <option>Hokkaido, Japan</option>
+                  <option>Aotearoa, New Zealand</option>
+                  <option>Other</option>
+                </select>
+                <i data-lucide="chevron-down" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-forest-500 dark:text-cream/40"></i>
+              </div>
+              <p class="field-error" data-error-for="region" hidden></p>
+            </div>
+            <div>
+              <label for="entryAttribution" class="field-label">Attribution name or collective <span class="text-terracotta-500">*</span></label>
+              <input id="entryAttribution" name="attribution" type="text" placeholder="Who should be credited?" class="field" />
+              <p class="field-error" data-error-for="attribution" hidden></p>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-end justify-between gap-3">
+              <label for="entryStory" class="field-label">Story / description <span class="text-terracotta-500">*</span></label>
+              <span id="storyCount" class="text-[10px] tabular-nums text-forest-500 dark:text-cream/35">0 / 1200</span>
+            </div>
+            <textarea id="entryStory" name="story" rows="5" maxlength="1200" placeholder="Describe the knowledge, its context, and what should never be shared publicly. Write in the language you think in — translation can follow." class="field resize-y"></textarea>
+            <p class="field-error" data-error-for="story" hidden></p>
+          </div>
+
+          <div>
+            <span class="field-label">Voice recording <span class="font-normal normal-case tracking-normal text-forest-500">(optional)</span></span>
+            <button type="button" id="audioDrop" class="dropzone mt-2">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-forest-900/5 text-forest-600 dark:bg-white/5 dark:text-cream/50">
+                <i data-lucide="audio-lines" class="h-5 w-5"></i>
+              </span>
+              <span class="text-left">
+                <span id="audioDropLabel" class="block text-xs font-medium text-forest-900 dark:text-cream/80">Add a voice recording</span>
+                <span id="audioDropHint" class="mt-0.5 block text-[10px] text-forest-500 dark:text-cream/35">WAV, MP3 or M4A · up to 50 MB · simulated for this demo</span>
+              </span>
+              <span class="ml-auto hidden rounded-full bg-forest-900/8 px-2 py-1 text-[9px] font-semibold uppercase tracking-wider text-forest-600 sm:block dark:bg-white/10 dark:text-cream/50">Upload</span>
+            </button>
+            <div id="audioFile" hidden class="mt-2 flex items-center gap-3 rounded-xl border border-forest-700/20 bg-forest-50 px-3 py-2.5 dark:border-forest-300/15 dark:bg-forest-500/10">
+              <span class="grid h-8 w-8 place-items-center rounded-lg bg-forest-700 text-cream"><i data-lucide="file-audio" class="h-4 w-4"></i></span>
+              <div class="min-w-0 flex-1">
+                <p id="audioFileName" class="truncate text-[11px] font-medium">field-recording.wav</p>
+                <div class="mt-1 flex items-center gap-2">
+                  <span class="h-1 flex-1 overflow-hidden rounded-full bg-forest-900/10 dark:bg-white/10"><span id="audioProgress" class="block h-full w-full rounded-full bg-forest-600"></span></span>
+                  <span id="audioMeta" class="text-[9px] text-forest-500 dark:text-cream/40">00:00</span>
+                </div>
+              </div>
+              <button type="button" id="audioRemove" class="grid h-7 w-7 place-items-center rounded-full text-forest-500 hover:bg-forest-900/10 dark:text-cream/40 dark:hover:bg-white/10" aria-label="Remove audio"><i data-lucide="x" class="h-3.5 w-3.5"></i></button>
+            </div>
+          </div>
+
+          <div>
+            <label class="consent-card" for="consentCheck">
+              <input id="consentCheck" type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-forest-700" />
+              <span class="text-[11px] leading-relaxed text-forest-700 dark:text-cream/55">
+                <strong class="font-semibold text-forest-950 dark:text-cream">Consent &amp; cultural attribution.</strong>
+                I confirm I have the right to share this knowledge, that its keepers are credited as named above, and I consent to it being reviewed by the community council. I understand it may be published only if approved.
+              </span>
+            </label>
+            <p class="field-error" data-error-for="consent" hidden></p>
+          </div>
+        </div>
+
+        <div class="mt-7 flex flex-col-reverse items-stretch gap-3 border-t border-forest-900/10 pt-5 sm:flex-row sm:items-center sm:justify-between dark:border-white/10">
+          <p class="flex items-center gap-1.5 text-[10px] text-forest-500 dark:text-cream/30">
+            <i data-lucide="lock" class="h-3 w-3"></i> Encrypted in transit · review usually takes 7–14 days
+          </p>
+          <div class="flex gap-2">
+            <button type="button" class="btn btn-ghost" data-close-modal>Cancel</button>
+            <button type="submit" class="btn btn-primary flex-1 justify-center sm:flex-none">
+              <i data-lucide="send" class="h-4 w-4"></i> Submit for council review
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div id="submitSuccess" hidden class="px-6 py-14 text-center sm:px-10">
+        <span class="success-seal mx-auto"><i data-lucide="check" class="h-7 w-7"></i></span>
+        <h3 class="mt-5 font-display text-2xl font-medium">Received with respect.</h3>
+        <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-forest-600 dark:text-cream/45">
+          Your knowledge is now <strong class="font-medium text-forest-900 dark:text-cream/80">pending council verification</strong>. A community reviewer will be in touch about attribution and consent.
+        </p>
+        <div class="mt-6 flex flex-col justify-center gap-2 sm:flex-row">
+          <button type="button" data-success-view class="btn btn-primary justify-center"><i data-lucide="library" class="h-4 w-4"></i> View in archive</button>
+          <button type="button" data-success-again class="btn btn-ghost justify-center">Submit another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ COMMUNITY VERIFICATION MODAL ══════════ -->
+  <div id="verifyModal" class="modal" hidden aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel modal-panel--form" role="dialog" aria-modal="true" aria-labelledby="verifyTitle">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close verification council">
+        <i data-lucide="x" class="h-4 w-4"></i>
+      </button>
+      <div class="border-b border-forest-900/10 px-6 pb-5 pt-6 sm:px-8 dark:border-white/10">
+        <div class="flex flex-wrap items-center gap-2">
+          <p class="eyebrow"><span class="h-px w-6 bg-terracotta-500"></span> Community verification</p>
+          <span class="rounded-full bg-forest-500/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-forest-700 dark:bg-forest-400/10 dark:text-forest-200">3-elder quorum</span>
+        </div>
+        <h2 id="verifyTitle" class="mt-2 font-display text-2xl font-medium tracking-tight sm:text-3xl">The council keeps it honest.</h2>
+        <p class="mt-2 max-w-xl text-xs leading-relaxed text-forest-600 dark:text-cream/45">
+          New records need three endorsements from elders or culture-bearers of the originating community. Endorsing is a signal of trust, not a public vote.
+        </p>
+      </div>
+      <div class="px-6 py-5 sm:px-8">
+        <div class="flex items-start gap-3 rounded-2xl border border-terracotta-500/20 bg-terracotta-50 px-4 py-3.5 dark:border-terracotta-400/15 dark:bg-terracotta-500/10">
+          <i data-lucide="shield-check" class="mt-0.5 h-4 w-4 shrink-0 text-terracotta-600 dark:text-terracotta-300"></i>
+          <p class="text-[11px] leading-relaxed text-terracotta-800/80 dark:text-terracotta-100/60">
+            <strong class="font-semibold">Demonstration queue.</strong> Endorsements here simulate council review. In production, verification happens offline in community, with elders holding the final say.
+          </p>
+        </div>
+        <div id="verifyList" class="mt-4 space-y-2.5"></div>
+        <div class="mt-5 flex flex-col gap-3 border-t border-forest-900/10 pt-4 text-[10px] text-forest-500 sm:flex-row sm:items-center sm:justify-between dark:border-white/10 dark:text-cream/30">
+          <span class="flex items-center gap-1.5"><i data-lucide="lock" class="h-3 w-3"></i> Endorsements are private to the council</span>
+          <button type="button" class="story-link" data-close-modal>Back to the archive <i data-lucide="arrow-right" class="h-3 w-3"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
