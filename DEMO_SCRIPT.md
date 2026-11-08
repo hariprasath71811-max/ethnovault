@@ -227,5 +227,5 @@ Never cut: the consent checkbox, the pending state, or the quorum toast. Those a
 - [ ] Demo disclaimer readable in at least one shot (player or footer)
 - [ ] End card visible for ≥5 s
 - [ ] Export 1920 × 1080, H.264, AAC, 30 fps
-- [ ] Upload to YouTube/Vimeo as **unlisted**, add to Devpost
+- [x] Uploaded to YouTube as **unlisted** — https://youtu.be/1q7em74otS0 (added to Devpost)
 - [ ] Watch once with sound off to confirm the story reads visually

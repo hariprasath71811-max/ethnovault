@@ -8,7 +8,8 @@ EthnoVault is a consent-first, community-governed archive for oral traditions, I
 
 **Live demo:** https://hariprasath71811-max.github.io/ethnovault/  
 **Repository:** https://github.com/hariprasath71811-max/ethnovault  
-**Demo video:** https://hariprasath71811-max.github.io/ethnovault/ethnovault_demo.mp4
+**Demo video (YouTube):** https://youtu.be/1q7em74otS0
+**Demo video (MP4 fallback):** https://hariprasath71811-max.github.io/ethnovault/ethnovault_demo.mp4
 
 ---
 
